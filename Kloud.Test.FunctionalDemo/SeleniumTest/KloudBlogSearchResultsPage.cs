@@ -12,7 +12,7 @@ namespace Kloud.Test.FunctionalDemo.SeleniumTest
     {
         private static IWebDriver driver;
 
-        [FindsBy(How = How.TagName, Using = "article")]
+        [FindsBy(How = How.ClassName, Using = "posts")]
         private IWebElement searchResults;
 
         public KloudBlogSearchResultsPage(IWebDriver webDriver)
@@ -28,7 +28,7 @@ namespace Kloud.Test.FunctionalDemo.SeleniumTest
         public List<string> GetResults()
         {
             var results = new List<string>();
-            var resultEntries = searchResults.FindElements(By.TagName("a"));
+            var resultEntries = searchResults.FindElements(By.ClassName("post-title"));
 
             foreach (var row in resultEntries)
             {

@@ -2,6 +2,7 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
+using OpenQA.Selenium.IE;
 using System;
 using TechTalk.SpecFlow;
 
@@ -28,7 +29,7 @@ namespace Kloud.Test.FunctionalDemo
             Assert.IsTrue(homePage.PageTitle().Equals("Kloud Blog"));
         }
 
-        [Given(@"I have entered ""(.*)"" into the Search box")]
+        [Given(@"I have entered (.*) into the Search box")]
         public void GivenIHaveEnteredIntoTheSearchBox(string searchText)
         {
             homePage.EnterSearchText(searchText);
@@ -40,15 +41,13 @@ namespace Kloud.Test.FunctionalDemo
             searchResultsPage = homePage.SubmitSearchRequest();
         }
 
-        [Then(@"the result results should contain posts on Azure Tags")]
-        public void ThenTheResultResultsShouldContainPostsOnAzureTags()
+        [Then(@"the results should contain (.*) posts")]
+        public void ThenTheResultsShouldContainPosts(int resultCount)
         {
-            var results = searchResultsPage.GetResults();
-
+            // are we on the search results page?
             Assert.IsTrue(searchResultsPage.IsCurrentPage());
-            Assert.IsTrue(results.Count > 0);
-            Assert.IsTrue(results[0].Contains("Azure"));
-            Assert.IsTrue(results[0].Contains("Tags"));
+            // do the number of search results match the count expected?
+            Assert.IsTrue(searchResultsPage.GetResults().Count == resultCount);
         }
 
         [AfterScenario()]

@@ -18,9 +18,9 @@ namespace Kloud.Test.FunctionalDemo
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("TechTalk.SpecFlow", "1.9.0.77")]
     [System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    [TechTalk.SpecRun.FeatureAttribute("Search for Posts on Kloud Blog", Description="In order to find out information on Azure Tags\nAs a web users\nI want to find Post" +
+    [TechTalk.SpecRun.FeatureAttribute("Search Kloud Blog", Description="In order to find out information on Azure Tags\nAs a web users\nI want to find Post" +
         "s about Azure Tags when I search on Kloud\'s Blog", SourceFile="Search for Posts on Kloud Blog.feature", SourceLine=0)]
-    public partial class SearchForPostsOnKloudBlogFeature
+    public partial class SearchKloudBlogFeature
     {
         
         private static TechTalk.SpecFlow.ITestRunner testRunner;
@@ -32,7 +32,7 @@ namespace Kloud.Test.FunctionalDemo
         public virtual void FeatureSetup()
         {
             testRunner = TechTalk.SpecFlow.TestRunnerManager.GetTestRunner();
-            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "Search for Posts on Kloud Blog", "In order to find out information on Azure Tags\nAs a web users\nI want to find Post" +
+            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "Search Kloud Blog", "In order to find out information on Azure Tags\nAs a web users\nI want to find Post" +
                     "s about Azure Tags when I search on Kloud\'s Blog", ProgrammingLanguage.CSharp, ((string[])(null)));
             testRunner.OnFeatureStart(featureInfo);
         }
@@ -64,24 +64,45 @@ namespace Kloud.Test.FunctionalDemo
             testRunner.CollectScenarioErrors();
         }
         
-        [TechTalk.SpecRun.ScenarioAttribute("Search for \"Azure Tags\" on Kloud Blog", new string[] {
-                "mytag"}, SourceLine=6)]
-        public virtual void SearchForAzureTagsOnKloudBlog()
+        public virtual void SearchForPostsOnKloudBlog(string searchterm, string postcount, string[] exampleTags)
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Search for \"Azure Tags\" on Kloud Blog", new string[] {
-                        "mytag"});
-#line 7
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Search for Posts on Kloud Blog", exampleTags);
+#line 6
 this.ScenarioSetup(scenarioInfo);
-#line 8
+#line 7
  testRunner.Given("I am on the Kloud Blog homepage", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 8
+ testRunner.And(string.Format("I have entered {0} into the Search box", searchterm), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 9
- testRunner.And("I have entered \"Azure Tags\" into the Search box", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 10
  testRunner.When("I press Search", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 11
- testRunner.Then("the result results should contain posts on Azure Tags", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 10
+ testRunner.Then(string.Format("the results should contain {0} posts", postcount), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
+        }
+        
+        [TechTalk.SpecRun.ScenarioAttribute("Search for Posts on Kloud Blog, Azure Tags", SourceLine=13)]
+        public virtual void SearchForPostsOnKloudBlog_AzureTags()
+        {
+            this.SearchForPostsOnKloudBlog("Azure Tags", "3", ((string[])(null)));
+        }
+        
+        [TechTalk.SpecRun.ScenarioAttribute("Search for Posts on Kloud Blog, IoT", SourceLine=14)]
+        public virtual void SearchForPostsOnKloudBlog_IoT()
+        {
+            this.SearchForPostsOnKloudBlog("IoT", "7", ((string[])(null)));
+        }
+        
+        [TechTalk.SpecRun.ScenarioAttribute("Search for Posts on Kloud Blog, AWS", SourceLine=15)]
+        public virtual void SearchForPostsOnKloudBlog_AWS()
+        {
+            this.SearchForPostsOnKloudBlog("AWS", "10", ((string[])(null)));
+        }
+        
+        [TechTalk.SpecRun.ScenarioAttribute("Search for Posts on Kloud Blog, Taylor Swift", SourceLine=16)]
+        public virtual void SearchForPostsOnKloudBlog_TaylorSwift()
+        {
+            this.SearchForPostsOnKloudBlog("Taylor Swift", "0", ((string[])(null)));
         }
         
         [TechTalk.SpecRun.TestRunCleanup()]
@@ -94,7 +115,7 @@ TechTalk.SpecFlow.TestRunnerManager.GetTestRunner().OnTestRunEnd();
     [System.CodeDom.Compiler.GeneratedCodeAttribute("TechTalk.SpecFlow", "1.9.0.77")]
     [System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     [Microsoft.VisualStudio.TestTools.UnitTesting.TestClassAttribute()]
-    public partial class SearchForPostsOnKloudBlogFeature_MsTest
+    public partial class SearchKloudBlogFeature_MsTest
     {
         
         private static TechTalk.SpecFlow.ITestRunner testRunner;
@@ -106,7 +127,7 @@ TechTalk.SpecFlow.TestRunnerManager.GetTestRunner().OnTestRunEnd();
         public static void FeatureSetup(Microsoft.VisualStudio.TestTools.UnitTesting.TestContext testContext)
         {
             testRunner = TechTalk.SpecFlow.TestRunnerManager.GetTestRunner();
-            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "Search for Posts on Kloud Blog", "In order to find out information on Azure Tags\nAs a web users\nI want to find Post" +
+            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "Search Kloud Blog", "In order to find out information on Azure Tags\nAs a web users\nI want to find Post" +
                     "s about Azure Tags when I search on Kloud\'s Blog", ProgrammingLanguage.CSharp, ((string[])(null)));
             testRunner.OnFeatureStart(featureInfo);
         }
@@ -122,9 +143,9 @@ TechTalk.SpecFlow.TestRunnerManager.GetTestRunner().OnTestRunEnd();
         public virtual void TestInitialize()
         {
             if (((TechTalk.SpecFlow.FeatureContext.Current != null) 
-                        && (TechTalk.SpecFlow.FeatureContext.Current.FeatureInfo.Title != "Search for Posts on Kloud Blog")))
+                        && (TechTalk.SpecFlow.FeatureContext.Current.FeatureInfo.Title != "Search Kloud Blog")))
             {
-                Kloud.Test.FunctionalDemo.SearchForPostsOnKloudBlogFeature_MsTest.FeatureSetup(null);
+                Kloud.Test.FunctionalDemo.SearchKloudBlogFeature_MsTest.FeatureSetup(null);
             }
         }
         
@@ -144,26 +165,65 @@ TechTalk.SpecFlow.TestRunnerManager.GetTestRunner().OnTestRunEnd();
             testRunner.CollectScenarioErrors();
         }
         
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Search for \"Azure Tags\" on Kloud Blog")]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "Search for Posts on Kloud Blog")]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("mytag")]
-        public virtual void SearchForAzureTagsOnKloudBlog()
+        public virtual void SearchForPostsOnKloudBlog(string searchterm, string postcount, string[] exampleTags)
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Search for \"Azure Tags\" on Kloud Blog", new string[] {
-                        "mytag"});
-#line 7
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Search for Posts on Kloud Blog", exampleTags);
+#line 6
 this.ScenarioSetup(scenarioInfo);
-#line 8
+#line 7
  testRunner.Given("I am on the Kloud Blog homepage", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 8
+ testRunner.And(string.Format("I have entered {0} into the Search box", searchterm), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 9
- testRunner.And("I have entered \"Azure Tags\" into the Search box", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 10
  testRunner.When("I press Search", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 11
- testRunner.Then("the result results should contain posts on Azure Tags", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 10
+ testRunner.Then(string.Format("the results should contain {0} posts", postcount), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
+        }
+        
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Search for Posts on Kloud Blog")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "Search Kloud Blog")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("VariantName", "Azure Tags")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:searchterm", "Azure Tags")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:postcount", "3")]
+        public virtual void SearchForPostsOnKloudBlog_AzureTags()
+        {
+            this.SearchForPostsOnKloudBlog("Azure Tags", "3", ((string[])(null)));
+        }
+        
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Search for Posts on Kloud Blog")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "Search Kloud Blog")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("VariantName", "IoT")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:searchterm", "IoT")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:postcount", "7")]
+        public virtual void SearchForPostsOnKloudBlog_IoT()
+        {
+            this.SearchForPostsOnKloudBlog("IoT", "7", ((string[])(null)));
+        }
+        
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Search for Posts on Kloud Blog")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "Search Kloud Blog")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("VariantName", "AWS")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:searchterm", "AWS")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:postcount", "10")]
+        public virtual void SearchForPostsOnKloudBlog_AWS()
+        {
+            this.SearchForPostsOnKloudBlog("AWS", "10", ((string[])(null)));
+        }
+        
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Search for Posts on Kloud Blog")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "Search Kloud Blog")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("VariantName", "Taylor Swift")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:searchterm", "Taylor Swift")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:postcount", "0")]
+        public virtual void SearchForPostsOnKloudBlog_TaylorSwift()
+        {
+            this.SearchForPostsOnKloudBlog("Taylor Swift", "0", ((string[])(null)));
         }
     }
 }
